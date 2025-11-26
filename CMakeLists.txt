@@ -1,7 +1,4 @@
-﻿# CMakeList.txt : CMake project for Chip8-Emulator, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.24)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
@@ -9,13 +6,15 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("Chip8-Emulator")
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add source to this project's executable.
-add_executable (Chip8-Emulator "Chip8-Emulator.cpp" "Chip8-Emulator.h")
+# Include external dependencies
+add_subdirectory (external/glfw)
+add_subdirectory (external/glew)
+add_subdirectory (external/glm)
+add_subdirectory (external/imgui)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET Chip8-Emulator PROPERTY CXX_STANDARD 20)
-endif()
-
-# TODO: Add tests and install targets if needed.
+# Include engine along project
+add_subdirectory ("Chip8")
+add_subdirectory ("GraphicEngine")
