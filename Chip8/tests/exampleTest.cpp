@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Chip8-Emulator.h"
+#include <gmock/gmock.h>
 
 namespace ExampleTests
 {

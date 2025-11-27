@@ -6,7 +6,7 @@ if (BUILD_TESTING)
 
 	target_link_libraries(Chip8-tests
 		PRIVATE
-        GTest::gtest_main
+		GTest::gmock_main
 		Chip8
 	)
 
