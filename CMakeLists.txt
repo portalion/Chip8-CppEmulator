@@ -8,12 +8,17 @@ endif()
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(BUILD_TESTING ON)
+
+include(cmake/UpdateSubmodules.cmake)
+include(CTest)
 
 # Include external dependencies
 add_subdirectory (external/glfw)
 add_subdirectory (external/glew)
 add_subdirectory (external/glm)
 add_subdirectory (external/imgui)
+add_subdirectory (external/googletest)
 
 # Include engine along project
 add_subdirectory ("Chip8")
