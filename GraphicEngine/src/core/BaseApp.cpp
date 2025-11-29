@@ -1,8 +1,8 @@
 #include "BaseApp.h"
 
 
-BaseApp::BaseApp(int width, int height)
-	: window{ width, height, "Spinning Top" },
+BaseApp::BaseApp(int width, int height, const std::string& windowTitle )
+	: window{ width, height, windowTitle },
 	running{ true }
 {
 	InitImgui(window.GetWindowPointer());

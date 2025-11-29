@@ -6,16 +6,19 @@
 class BaseApp
 {
 public:
-	BaseApp(int width, int height);
-	~BaseApp();
+	BaseApp(int width, int height, const std::string& windowTitle);
+	virtual ~BaseApp();
 
 	void Run();
-	virtual void HandleResize();
-	virtual void ProcessFrame() = 0;
-	
-	Window window;
 protected:
 	bool running;
 	int width;
 	int height;
+
+	Window window;
+
+	virtual void HandleResize();
+	virtual void ProcessFrame() = 0;
+
+	friend Window;
 };
