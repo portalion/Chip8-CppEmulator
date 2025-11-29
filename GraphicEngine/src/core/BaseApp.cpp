@@ -39,6 +39,11 @@ void BaseApp::Run()
 	}
 }
 
+void BaseApp::Clear(ClearMask toClear)
+{
+	glClear(static_cast<GLbitfield>(toClear));
+}
+
 void BaseApp::HandleResize()
 {
 	width = window.GetWidth();
